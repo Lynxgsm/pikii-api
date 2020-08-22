@@ -64,6 +64,11 @@ app.get('/', (req, res) => {
 //   console.log("Socket.io connected");
 // });
 
-app.listen(HTTP, () => {
-  console.log(`Server started on http://${HTTP.host}:${HTTP.port}`);
+// app.listen(HTTP, () => {
+//   console.log(`Server started on http://${HTTP.host}:${HTTP.port}`);
+// });
+
+
+app.listen(5000, () => {
+  console.log(`Server started on 5000`);
 });
