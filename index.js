@@ -10,5 +10,5 @@ dotenv.config();
 const DBCONNECT = require("./config/db");
 
 express()
-  .get('/', (req, res) => res.send('Hello World with cors and http'))
+  .get('/', (req, res) => res.send('Hello World with dotenv confi and DBCONNECT'))
   .listen(PORT, () => console.log(`Listening on ${PORT}`))
