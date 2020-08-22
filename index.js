@@ -6,33 +6,22 @@ const socket = require("socket.io");
 const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 5000
 
-// CORS CONFIG FOR HEROKU
-conf = {
-  port: PORT,
-  // origin undefined handler
-  // see https://github.com/expressjs/cors/issues/71
-  originUndefined: function (req, res, next) {
-    if (!req.headers.origin) {
-      res.json({
-        mess: 'Hi you are visiting the service locally. If this was a CORS the origin header should not be undefined'
-      });
-    } else {
-      next();
-    }
-  },
-  // Cross Origin Resource Sharing Options
-  cors: {
-    // origin handler
-    origin: function (origin, cb) {
-      // setup a white list 
-    },
-    optionsSuccessStatus: 200
+const allowCrossDomain = (req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+
+  // intercept OPTIONS method
+  if ('OPTIONS' == req.method) {
+    res.send(200);
+  }
+  else {
+    next();
   }
 };
 
 dotenv.config();
 const DBCONNECT = require("./config/db");
-
 const { HTTP } = require("./config/setting").config;
 const auth = require("./api/middlewares/authorization");
 
@@ -46,7 +35,7 @@ const Router = express.Router();
 DBCONNECT();
 
 //app config
-app.use(conf.originUndefined, cors(conf.cors));
+app.use(allowCrossDomain)
 app.use(express.static("public"));
 app.use(bodyParser.json());
 app.use(
