@@ -12,6 +12,15 @@ const DBCONNECT = require("./config/db");
 const { HTTP } = require("./config/setting").config;
 const auth = require("./api/middlewares/authorization");
 
+//init app
+const app = express();
+const httpServer = http.createServer(app);
+
+const ioHttp = socket(httpServer);
+const Router = express.Router();
+
+DBCONNECT();
+
 express()
-  .get('/', (req, res) => res.send('Hello World with HTTP and auth'))
+  .get('/', (req, res) => res.send('Hello World with init app and DBCONNECT'))
   .listen(PORT, () => console.log(`Listening on ${PORT}`))
