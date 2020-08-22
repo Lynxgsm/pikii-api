@@ -53,13 +53,13 @@ app.get("/", (req, res) => {
   return res.send("Hello from server");
 });
 
-app.use("/api/admin/*", auth(0));
-app.use("/api/client/*", auth(1));
-app.use("/api/resto/*", auth(2));
-app.use("/api/livreur/*", auth(3));
-app.use("/api/supermarche/*", auth(4));
-app.use("/api/marchand/*", auth(5));
-app.use("/api/common/*", auth("*"));
+app.use("/api/admin/*");
+app.use("/api/client/*");
+app.use("/api/resto/*");
+app.use("/api/livreur/*");
+app.use("/api/supermarche/*");
+app.use("/api/marchand/*");
+app.use("/api/common/*");
 
 app.use("/api", require("./api/common/controllers")(Router));
 app.use("/api", require("./api/supermarche")(Router));
