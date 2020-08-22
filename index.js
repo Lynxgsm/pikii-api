@@ -56,6 +56,10 @@ app.use("/api", require("./api/livreur")(Router));
 app.use("/api", require("./api/client")(Router));
 app.use("/api", require("./api/admin")(Router));
 
+ioHttp.on("connection", function (socket) {
+  console.log("Socket.io connected");
+});
+
 express()
-  .get('/', (req, res) => res.send('Hello World with app config and use bdb'))
+  .get('/', (req, res) => res.send('Hello World with socket connection'))
   .listen(PORT, () => console.log(`Listening on ${PORT}`))
