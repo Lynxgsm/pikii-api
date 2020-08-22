@@ -5,7 +5,7 @@ var express = require("express");
 // var socket = require("socket.io");
 var bodyParser = require("body-parser");
 
-dotenv.config();
+// dotenv.config();
 
 // var DBCONNECT = require("./config/db");
 var { HTTP } = require("./config/setting").config;
