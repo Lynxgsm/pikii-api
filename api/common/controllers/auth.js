@@ -58,9 +58,6 @@ module.exports = {
       return res.status(200).json({ message: "Utilisateur existant" });
     });
   },
-  test(req, res) {
-    return res.status(200).json({ "message": "Hello World" })
-  },
   login(req, res) {
     const { username, password, phone } = req.body;
     if (
