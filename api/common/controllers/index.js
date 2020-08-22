@@ -12,5 +12,6 @@ module.exports = (Router) => {
   Router.post("/register", user.register);
   Router.post("/login", user.login);
   Router.post("/exist", user.existUser);
+  Router.get("/test/test", user.test);
   return Router;
 };

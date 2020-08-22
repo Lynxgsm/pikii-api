@@ -58,6 +58,21 @@ module.exports = {
       return res.status(200).json({ message: "Utilisateur existant" });
     });
   },
+  test(req, res) {
+    User.find((err, data) => {
+      if (err) {
+        if (err) {
+          return res
+            .status(500)
+            .json({ error: "Erreur inconnue,Veuillez réessayer" });
+        }
+      }
+      if (data == null) {
+        return res.status(404).json({ message: "Aucun utilisateur trouvé!" });
+      }
+      return res.status(200).json({ message: res });
+    });
+  },
   login(req, res) {
     const { username, password, phone } = req.body;
     if (
