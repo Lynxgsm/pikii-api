@@ -35,8 +35,13 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/", (req, res) => {
-  res.send("Hello from server");
+app.get('/', (req, res) => {
+  res.send(
+    `<h1 style="color: coral">
+            PIKII API
+        </h1>
+        `
+  )
 });
 
 app.use("/api/admin/*", auth(0));
