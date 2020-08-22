@@ -7,8 +7,8 @@ var bodyParser = require("body-parser");
 
 // dotenv.config();
 
-// var DBCONNECT = require("./config/db");
-var { HTTP } = require("./config/setting").config;
+var DBCONNECT = require("./config/db");
+// var { HTTP } = require("./config/setting").config;
 
 express()
   .get('/', (req, res) => res.send('helloworld'))
