@@ -9,6 +9,9 @@ const PORT = process.env.PORT || 5000
 dotenv.config();
 const DBCONNECT = require("./config/db");
 
+const { HTTP } = require("./config/setting").config;
+const auth = require("./api/middlewares/authorization");
+
 express()
-  .get('/', (req, res) => res.send('Hello World with dotenv confi and DBCONNECT'))
+  .get('/', (req, res) => res.send('Hello World with HTTP and auth'))
   .listen(PORT, () => console.log(`Listening on ${PORT}`))
