@@ -1,8 +1,0 @@
-# Rakoto
-    - modif : model delivery / destination_address to false
-    - modif : error message login
-    - add payement_type :
-        -- cash : 0
-        -- pikii pocket : 1
-        -- cb : 2
-    - add route get solde ewallet User
