@@ -1,6 +1,11 @@
-const express = require('express')
-const path = require('path')
-const PORT = process.env.PORT || 5000
+var cors = require("cors");
+var http = require("http");
+var dotenv = require("dotenv");
+var express = require("express");
+var socket = require("socket.io");
+var bodyParser = require("body-parser");
+
+dotenv.config();
 
 express()
   .get('/', (req, res) => res.send('helloworld'))
