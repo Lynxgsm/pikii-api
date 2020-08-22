@@ -16,7 +16,7 @@ module.exports = {
         clientEwallet: { "client._id": id }, //Client ewallet
         userRole: { role: req.params.userRole }, //filter per user role
         productUserID: { userID: req.params.productUserID }, //Filter product per user ID
-        roleType: { role: +req.params.role }, //Client catagory list []
+        roleType: { role: +req.params.type }, //Client catagory list []
         solde: { _id: id }, //Client ewallet
         livreur: {
           delivery_status: +req.params.status,
@@ -26,6 +26,7 @@ module.exports = {
         delivery: { _id: req.params.id },
       };
 
+console.log(filter[key])
       model.find(filter[key] || {}, (err, data) => {
         if (err) {
           return res.status(500).json({ error: "Erreur de serveur" });
