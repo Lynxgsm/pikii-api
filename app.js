@@ -36,7 +36,7 @@ app.use((req, res, next) => {
 });
 
 app.get("/", (req, res) => {
-  return res.send("Hello from server");
+  res.send("Hello from server");
 });
 
 app.use("/api/admin/*", auth(0));
