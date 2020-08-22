@@ -60,6 +60,11 @@ ioHttp.on("connection", function (socket) {
   console.log("Socket.io connected");
 });
 
-express()
-  .get('/', (req, res) => res.send('Hello World with socket connection'))
-  .listen(PORT, () => console.log(`Listening on ${PORT}`))
+httpServer.listen(HTTP.port, () => {
+  console.log(`Server started on http://${HTTP.host}:${HTTP.port}`);
+});
+
+
+// express()
+//   .get('/', (req, res) => res.send('Hello World with socket connection'))
+//   .listen(PORT, () => console.log(`Listening on ${PORT}`))
