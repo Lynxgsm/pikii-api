@@ -5,6 +5,7 @@ const {
   Product,
   Ewallet,
   User,
+  Publicity
 } = require("../common/models");
 
 module.exports = (Router) => {
@@ -20,9 +21,9 @@ module.exports = (Router) => {
     Service.find(Delivery, "deliveries"),
   );
   Router.route("/client/ewallet").get(Service.find(Ewallet, "clientEwallet"));
-  Router.route("/client/resto").get(Service.find(Product));
-  Router.route("/client/marchand").get(Service.find(Product));
-  Router.route("/client/supermarche").get(Service.find(Product));
+  Router.route("/client/users/:userRole").get(Service.find(User, "userRole"));
+  Router.route("/client/products/:productUserID").get(Service.find(Product, "productUserID"));
+  Router.route("/client/publicity").get(Service.find(Publicity));
   Router.route("/client/solde").get(Service.find(User, "solde"));
   return Router;
 };

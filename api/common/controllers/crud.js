@@ -14,8 +14,10 @@ module.exports = {
         expeditionID: { expeditionId: id }, //Expedition Resto | Marchand | Supermarché
         cashpointID: { "cashpoint._id": id }, //Ewallet Resto | Marchand | Supermarché
         clientEwallet: { "client._id": id }, //Client ewallet
+        userRole: { role: req.params.userRole }, //filter per user role
+        productUserID: { userID: req.params.productUserID }, //Filter product per user ID
+        roleType: { role: +req.params.role }, //Client catagory list []
         solde: { _id: id }, //Client ewallet
-        roleType: { role: +req.params.type }, //Client catagory list []
         livreur: {
           delivery_status: +req.params.status,
           deliverer: req.token.id,
