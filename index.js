@@ -60,8 +60,8 @@ ioHttp.on("connection", function (socket) {
   console.log("Socket.io connected");
 });
 
-httpServer.listen(HTTP.port, () => {
-  console.log(`Server started on http://${HTTP.host}:${HTTP.port}`);
+httpServer.listen(PORT, () => {
+  console.log(`Server started on ${PORT}`);
 });
 
 
